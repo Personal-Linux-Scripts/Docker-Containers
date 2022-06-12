@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /mnt/5D9037A9106244F3/NavidromeData/Jellyfin/config/:/config
+      - /mnt/5D9037A9106244F3/NavidromeData/Jellyfin/cache/:/cache
+      - /mnt/5D9037A9106244F3/Music/:/media
+    ports:
+      - 8096:8096
+    restart: unless-stopped
